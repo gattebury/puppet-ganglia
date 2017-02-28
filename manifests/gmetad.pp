@@ -8,6 +8,7 @@ class ganglia::gmetad(
   $gridname                        = undef,
   $rras                            = $::ganglia::params::rras,
   $trusted_hosts                   = [],
+  $server_threads                  = '4',
   $gmetad_package_name             = $::ganglia::params::gmetad_package_name,
   $gmetad_package_ensure           = 'present',
   $gmetad_service_name             = $::ganglia::params::gmetad_service_name,
