@@ -4,6 +4,8 @@ describe 'ganglia::gmond' do
   let(:facts) {{ :osfamily => 'RedHat', :operatingsystemmajrelease => '6', :puppetversion => Puppet.version }}
 
   context 'default params' do
+    it { should compile.with_all_deps }
+
     it 'should manage gmond.conf' do
       should contain_file('/etc/ganglia/gmond.conf').with(
         :ensure => 'present',

@@ -43,7 +43,9 @@ class ganglia::gmond (
   validate_string($gmond_package_ensure)
   validate_string($gmond_service_name)
   validate_string($gmond_service_config)
-  validate_string($gmond_status_command)
+  if $gmond_status_command {
+    validate_string($gmond_status_command)
+  }
 
   if ($::ganglia::params::gmond_status_command) {
     $hasstatus = false
