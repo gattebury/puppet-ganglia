@@ -51,6 +51,9 @@ class ganglia::params {
       $web_package_name     = 'ganglia-web'
       $web_php_config       = '/etc/ganglia/conf.php'
 
+      $gmond_status_command  = undef
+      $gmetad_status_command = undef
+
       case $::operatingsystem {
         'Fedora': {
           $gmond_service_config = '/etc/ganglia/gmond.conf'
@@ -106,6 +109,9 @@ class ganglia::params {
       $gmetad_service_config = '/etc/ganglia/gmetad.conf'
 
       $gmetad_case_sensitive_hostnames = 1
+
+      $gmond_status_command  = undef
+      $gmetad_status_command = undef
 
       # ubuntu 12.10 and below didn't have a status command in the init script
       if ! ($::operatingsystem == 'Ubuntu' and $::lsbmajdistrelease > '12') {
